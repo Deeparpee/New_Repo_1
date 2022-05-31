@@ -8,7 +8,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
 
-import GenericUtility.PropertyFileUtility;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 
@@ -22,7 +21,7 @@ public class CreateOrganizationTest {
         
         driver.get("http://localhost:8888");
 
-	/*step1:Login to the application*/
+	    /*step1:Login to the application*/
 
         driver.findElement(By.name("user_name")).sendKeys("admin");
         driver.findElement(By.name("user_password")).sendKeys("admin");
@@ -31,6 +30,8 @@ public class CreateOrganizationTest {
         driver.findElement(By.xpath("//img[@title='Create Organization...']")).click();
         driver.findElement(By.xpath("//input[@name='accountname']")).sendKeys("sony113");
         driver.findElement(By.xpath("//input[@title='Save [Alt+S]']")).click();
+        
+        /* validation */
         WebElement ele = driver.findElement(By.xpath("//span[@class='dvHeaderText']"));
         String actRes = ele.getText();
         if(actRes.contains("sony113"))
@@ -41,9 +42,7 @@ public class CreateOrganizationTest {
    }
 
 	/*Logout*/
-
-
-        WebElement ele1 = driver.findElement(By.xpath("//img[@src='themes/softed/images/user.PNG']"));
+        WebElement ele1 = driver.findElement(By.xpath("//img[@src='themes/softed/images/user.PNG']"));     
         Actions act = new Actions(driver);
         act.moveToElement(ele1).perform();
         driver.findElement(By.xpath("//a[.='Sign Out']")).click();
