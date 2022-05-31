@@ -15,8 +15,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 public class CreateOrganizationTest {
 	public static void main(String[] args) 
 	{
-		//PropertyFileUtility plib = new PropertyFileUtility();
-		WebDriverManager.chromedriver().setup();
+	WebDriverManager.chromedriver().setup();
         WebDriver driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
