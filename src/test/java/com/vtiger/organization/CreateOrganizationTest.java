@@ -21,7 +21,9 @@ public class CreateOrganizationTest {
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         
         driver.get("http://localhost:8888");
+
 	/*step1:Login to the application*/
+
         driver.findElement(By.name("user_name")).sendKeys("admin");
         driver.findElement(By.name("user_password")).sendKeys("admin");
         driver.findElement(By.id("submitButton")).click();
@@ -37,7 +39,10 @@ public class CreateOrganizationTest {
         }else		{
    	     System.out.println("organization is not created- TC PASS");
    }
+
 	/*Logout*/
+
+
         WebElement ele1 = driver.findElement(By.xpath("//img[@src='themes/softed/images/user.PNG']"));
         Actions act = new Actions(driver);
         act.moveToElement(ele1).perform();
